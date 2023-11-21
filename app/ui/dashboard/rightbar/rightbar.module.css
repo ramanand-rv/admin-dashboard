@@ -1,40 +1,45 @@
-.container{
+.container {
     position: fixed;
 }
 
-.item{
+.item {
     position: relative;
-    background-color: linear-gradient(to top, #0454ff58, rgba(0, 27, 84, 0.345));
-    padding: 20px 0px;
+    background-image: linear-gradient(to top, #121218, #182242 100%);
+    padding: 20px 24px;
     border-radius: 10px;
     margin-bottom: 30px;
 }
-.bgContainer1 .bgContainer2{
+
+.bgContainer1 .bgContainer2 {
     position: sticky;
     bottom: 0;
     right: 0;
     width: 50%;
     height: 50%;
 }
-.bg{
+
+.bg {
     object-fit: contain;
     opacity: 0.2;
 }
 
-.texts{
+.texts {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
-.notification{
+
+.notification {
     font-weight: bold;
 }
-.title{
+
+.title {
     font-weight: 500;
     font-size: 12px;
     color: var(--textSoft);
 }
-.button{
+
+.button {
     padding: 10px;
     display: flex;
     align-items: center;
@@ -47,7 +52,7 @@
     cursor: pointer;
 }
 
-.description{
-    font-size: 12px;
+.description {
+    font-size: 15px;
     color: var(--textSoft);
 }

@@ -11,7 +11,7 @@ const RightBar = () => {
           <Image
           className={styles.bg}
             alt='Available now image'
-            src='/anow.jfif'
+            src='/anow.png'
             fill
           />
         </div>
@@ -24,14 +24,14 @@ const RightBar = () => {
             Watch
           </button>
         </div>
-      </div>
+      </div> 
 
       <div className={styles.item}>
         <div className={styles.bgContainer2}>
           <Image
             className={styles.bg}
             alt='coming soon image'
-            src='/cnext.jfif'
+            src='/cnext.png'
             fill
           />
         </div>
