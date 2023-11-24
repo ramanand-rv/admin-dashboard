@@ -35,8 +35,22 @@
     outline: none;
 }
 
-.icons{
+.icons {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.chatIcon, .notificationIcon, .publicIcon {
+    cursor: pointer;
+}
+
+.chatIcon:hover, 
+.notificationIcon:hover, 
+.publicIcon:hover {
+    
+    transition: transform 200ms ease-in-out;
+    transform: scale(1.8);
+    color: rgb(122, 122, 245);
+
 }
