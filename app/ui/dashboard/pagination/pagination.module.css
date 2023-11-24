@@ -18,10 +18,10 @@
     display: flex;
     align-items: center;
     background-color: #203a6c;
-    border-radius: 10px;
-    padding: 8px;
+    border-radius: 5px;
+    padding: 0px 5px;
 }
 
-.btnStyle:hover{
+.btnStyle:hover {
     opacity: 0.7;
 }
