@@ -35,11 +35,6 @@
     outline: none;
 }
 
-.search:hover {
-    transition: transform 200ms ease-in-out;
-    transform: scale(1.2);
-}
-
 .icons {
     display: flex;
     align-items: center;
