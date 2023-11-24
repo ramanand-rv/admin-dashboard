@@ -40,6 +40,8 @@
 }
 
 .button {
+    z-index: 1;
+    cursor: pointer;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -49,10 +51,10 @@
     gap: 10px;
     width: max-content;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 .description {
     font-size: 15px;
     color: var(--textSoft);
 }
+

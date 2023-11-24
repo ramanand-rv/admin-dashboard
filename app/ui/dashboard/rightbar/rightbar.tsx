@@ -9,7 +9,7 @@ const RightBar = () => {
       <div className={styles.item}>
         <div className={styles.bgContainer1}>
           <Image
-          className={styles.bg}
+            className={styles.bg}
             alt='Available now image'
             src='/anow.png'
             fill
@@ -24,7 +24,7 @@ const RightBar = () => {
             Watch
           </button>
         </div>
-      </div> 
+      </div>
 
       <div className={styles.item}>
         <div className={styles.bgContainer2}>
@@ -40,7 +40,8 @@ const RightBar = () => {
           <h3 className={styles.subtitle}>New server actions are available, partial pre-renderning is coming up soon</h3>
           <span className={styles.title}>Takes 4 minutes to learn</span>
           <p className={styles.description}>Embrace the future of web development! New server actions are now available, and the game-changing feature of partial pre-rendering is coming soon. Stay tuned!</p>
-          <button className={styles.button}><MdPlayCircleFilled />
+          <button className={styles.button}>
+            <MdPlayCircleFilled />
             Watch
           </button>
         </div>
