@@ -26,7 +26,7 @@ function UsersPage() {
         <tbody>
           <tr>
             <td className={styles.user}>
-              <Image src='/user.png' className={styles.userImage} alt='user image' width={40} height={40}/>
+              <Image src='/user.png' className={styles.userImage} alt='user image' width={40} height={40} />
               Tony stark
             </td>
             <td>tony_stark@gmail.com</td>
@@ -34,10 +34,12 @@ function UsersPage() {
             <td>CEO</td>
             <td>Active</td>
             <td>
-              <Link href='/'>
-                <button className={`${styles.button} ${styles.view}`}>View</button>
-              </Link>
-              <button className={`${styles.button} ${styles.view}`}>Delete</button>
+              <div className={styles.buttons}>
+                <Link href='/'>
+                  <button className={`${styles.button} ${styles.view}`}>View</button>
+                </Link>
+                <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+              </div>
             </td>
           </tr>
         </tbody>
