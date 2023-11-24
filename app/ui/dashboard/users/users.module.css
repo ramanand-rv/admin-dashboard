@@ -19,6 +19,9 @@
     border: none;
     cursor: pointer;
 }
+.addBtn:hover{
+    opacity: 0.7;
+}
 
 .table{
     width: 100%;
@@ -49,6 +52,12 @@
 .view{
     background-color: teal;
 }
+.view:hover{
+    opacity: 0.8;
+}
 .delete{
     background-color: crimson;
+}
+.delete:hover{
+    opacity: 0.8;
 }

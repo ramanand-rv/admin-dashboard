@@ -17,7 +17,11 @@
 .btnStyle {
     display: flex;
     align-items: center;
-    background-color: #1d335b;
+    background-color: #203a6c;
     border-radius: 10px;
     padding: 8px;
+}
+
+.btnStyle:hover{
+    opacity: 0.7;
 }
