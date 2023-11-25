@@ -6,7 +6,7 @@ const AddProductsPage = () => {
       <form action="" className={styles.form}>
         <input type="text" name="title" placeholder="Title" required/>
         
-        <select name="category" id="category">
+        <select name="category" id="category" defaultValue={0}>
           <option value="general">Choose a Category</option>
           <option value="electronics">Electronics</option>
           <option value="fashion">Fashion</option>
@@ -20,7 +20,7 @@ const AddProductsPage = () => {
         <input type="text" name="color" placeholder='Color' />
         <input type="text" name="size" placeholder='Size' />
 
-        <textarea name="desc" id="desc" rows={16} placeholder='Description'></textarea>
+        <textarea name="desc" id="desc" rows={4} placeholder='Description'></textarea>
 
         <button type='submit'>Submit</button>
       </form>
