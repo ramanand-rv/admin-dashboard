@@ -3,11 +3,11 @@ import Sidebar from "../ui/dashboard/sidebar/sidebar"
 import styles from '../ui/dashboard/dashboard.module.css'
 import Footer from "../ui/dashboard/footer/footer"
 
- 
-const layout = ({children}: any) => {
+
+const layout = ({ children }: any) => {
   return (
     <div className={styles.container}>
-      
+
       <div className={styles.menu}>
         <Sidebar />
       </div>
@@ -15,7 +15,7 @@ const layout = ({children}: any) => {
       <div className={styles.content}>
         <Navbar />
         {children}
-        <Footer />
+          <Footer />
       </div>
     </div>
   )
