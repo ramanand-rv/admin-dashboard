@@ -21,7 +21,7 @@ const UserProfilePage = () => {
                     <label>Email</label>
                     <input type="email" name="email" placeholder='tony_stark@gmail.com' />
                     <label>Password</label>
-                    <input type="password" name="password" placeholder='tony stark' />
+                    <input type="password" name="password" />
                     <label>Mobile</label>
                     <input type="text" name="mobile" placeholder='+91 8734238278' />
                     <label>Address</label>
