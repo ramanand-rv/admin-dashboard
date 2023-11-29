@@ -7,12 +7,12 @@ const Search = ({ placeholder }: any) => {
   const searchParams = useSearchParams();
   const pathName = usePathname();
   const { replace } = useRouter();
-  const params = new URLSearchParams(searchParams);
-
+  
   const handleSearch = (e: any) => {
+    const params = new URLSearchParams(searchParams);
     params.set('q', e.target.value)
 
-    if (e.target.value) {
+    if (e.target.value.length > 2) {
       params.set("q", e.target.value);
     }
     else {
