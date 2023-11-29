@@ -37,7 +37,7 @@ const UsersPage = async() => {
               {user.username}
             </td>
             <td>{user.email}</td>
-            <td>{user.createdAt?.toString()}</td>
+            <td>{user.createdAt?.toString().slice(4, 16)}</td>
             <td>{user.isAdmin ? "Admin" : "Client"}</td>
             <td>{user.isActive ? "Active" : "Passive"}</td>
             <td>
