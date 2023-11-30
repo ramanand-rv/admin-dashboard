@@ -10,10 +10,6 @@
     cursor: pointer;
 }
 
-.button:disabled {
-    cursor: not-allowed;
-}
-
 .btnStyle {
     display: flex;
     align-items: center;
@@ -22,6 +18,25 @@
     padding: 0px 5px;
 }
 
-.btnStyle:hover {
-    opacity: 0.7;
+.btnStyle:disabled {
+    background-color: rgb(94, 5, 5);
+    color: var(--textSoft);
+}
+
+.button:before {
+    content: '';
+    width: calc(100% + 8px);
+    opacity: 0;
+    height: calc(100% + 8px);
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    transition: all 0.2s ease-in;
+    z-index: -1;
+}
+
+.btnStyle:enabled:hover {
+    transition: ease-in 100ms;
+    transform: scale(1.1);
+    background-color: #5d57c9;
 }

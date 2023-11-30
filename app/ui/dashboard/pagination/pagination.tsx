@@ -11,24 +11,23 @@ const Pagination = ({ count }: any) => {
 
     const page = searchParams?.get('page') || '1';
 
-    const ItemPerPage = 3;
+    const ItemPerPage = 5;
     const hasPrev: any = ItemPerPage * (parseInt(page) - 1) > 0
     const hasNext: any = ItemPerPage * (parseInt(page) - 1) + ItemPerPage < count;
 
     const handlePageChange = (type: any) => {
         if (type === 'next') { params.set('page', parseInt(page) - 1) }
         else { params.set('page', parseInt(page) + 1); }
-
         replace(`${pathName}?${params}`);
     }
 
     return (
         <div className={styles.container}>
-            <button className={styles.btnStyle} disabled={!hasPrev} onClick={() => handlePageChange('next')} >
+            <button className={styles.btnStyle} type='button' disabled={!hasPrev} onClick={() => handlePageChange('next')} >
                 <MdArrowBackIos /> Previous
             </button>
 
-            <button className={styles.btnStyle} disabled={!hasNext} onClick={() => handlePageChange('prev')}>
+            <button className={styles.btnStyle} type='button' disabled={!hasNext} onClick={() => handlePageChange('prev')}>
                 Next <MdArrowForwardIos />
             </button>
         </div>

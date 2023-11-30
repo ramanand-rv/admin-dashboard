@@ -4,11 +4,10 @@ import { connectToDB } from "./utils";
 export const fetchUsers = async (q: any, page: any) => {
 
     const regex = new RegExp(q, 'i');
-    const UsersPerPage = 3;
+    const UsersPerPage = 5;
     try {
         connectToDB();
         const count = (await User.find({ username: { $regex: regex } })).length;
-        console.log('Count:-> ',count);        
         const users = await User.find({username: {$regex: regex}}).limit(UsersPerPage).skip(UsersPerPage * (page - 1)); 
         
         return {count, users};
