@@ -17,7 +17,7 @@ const UserProfilePage = () => {
                 <form action="" className={styles.form}>
 
                     <label>Username</label>
-                    <input type="text" name="Username" placeholder='Tony Stark' />
+                    <input type="text" name="username" placeholder='Tony Stark' />
                     <label>Email</label>
                     <input type="email" name="email" placeholder='tony_stark@gmail.com' />
                     <label>Password</label>

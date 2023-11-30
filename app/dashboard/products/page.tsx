@@ -9,7 +9,6 @@ const ProductsPage = async ({ searchParams }: any) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { count, products }: any = await fetchProducts(q, page);
-  console.log(products);
 
   return (
     <div className={styles.container}>
@@ -31,13 +30,13 @@ const ProductsPage = async ({ searchParams }: any) => {
           </tr>
         </thead>
         <tbody>
-          {products.map((product:any) => (
+          {products.map((product: any) => (
             <tr key={product.id}>
               <td className={styles.product}>
                 <Image src={product.img || '/noproduct.png'} className={styles.productImage} alt='product image' width={40} height={40} />
                 {product.title}
               </td>
-              <td>{product.description.toString().slice(0, 10)}</td>
+              <td>{product.description.toString().slice(0, 20)}</td>
               <td>INR {product.price}</td>
               <td>{product.createdAt?.toString().slice(4, 16)}</td>
               <td>{product.stock}</td>
