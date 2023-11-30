@@ -11,7 +11,7 @@ const Search = ({ placeholder }: any) => {
   
   const handleSearch = useDebouncedCallback((e: any) => {
     const params = new URLSearchParams(searchParams);
-    params.set('q', e.target.value)
+    params.set('page', '1')
 
     if (e.target.value.length > 2) {
       params.set("q", e.target.value);
