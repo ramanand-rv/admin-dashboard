@@ -1,19 +1,19 @@
+'use server'
+import bcrypt from 'bcrypt';
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { User } from "./models";
+import { Product, User } from "./models";
 import { connectToDB } from "./utils";
-import bcrypt from 'bcrypt';
 
 export const addUser = async (formData: any) => {
-    'use server'
-    const {username, email, password, mobile, address, isAdmin, isActive} = Object.fromEntries(formData);
+    const { username, email, password, mobile, address, isAdmin, isActive } = Object.fromEntries(formData);
 
     try {
         connectToDB();
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
         const newUser = new User({
-            username, 
+            username,
             email,
             password: hashedPassword,
             mobile,
@@ -28,4 +28,28 @@ export const addUser = async (formData: any) => {
     }
     revalidatePath('/dashboard/users');
     redirect('/dashboard/users');
+};
+
+export const addProduct = async (formData: any) => {
+    const { title, description, price, stock, color, size, category } = Object.fromEntries(formData);
+
+    try {
+        connectToDB();
+
+        const newProduct = new Product({
+            title,
+            description,
+            price,
+            stock,
+            color,
+            size,
+            category,
+        });
+        await newProduct.save();
+    } catch (error) {
+        console.log(error);
+        throw new Error('Failed to add the product!');
+    }
+    revalidatePath('/dashboard/products');
+    redirect('/dashboard/products');
 };
