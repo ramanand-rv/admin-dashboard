@@ -15,7 +15,9 @@ const UserProfilePage = async ({ params }: any) => {
                         fill
                     />
                 </div>
-                {user.username}
+                <div className={styles.usertitle}>
+                    {user.username}
+                </div>
             </div>
 
             <div className={styles.formContainer}>
