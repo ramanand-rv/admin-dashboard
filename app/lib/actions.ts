@@ -88,7 +88,7 @@ export const updateUser = async (formData: any) => {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
         connectToDB();
-        const updateFields:any = {
+        const updateFields: any = {
             username,
             email,
             phone,
@@ -96,16 +96,37 @@ export const updateUser = async (formData: any) => {
             address,
             isAdmin,
             isActive,
-        }; 
+        };
         Object.keys(updateFields).forEach((key) =>
-            (updateFields[key] == "" || undefined ) && delete updateFields[key]);
-        const filter = {_id: new ObjectId(id)};
-        const options = {upsert: true};
+            (updateFields[key] == "" || undefined) && delete updateFields[key]);
+        const filter = { _id: new ObjectId(id) };
+        const options = { upsert: true };
         await User.findOneAndUpdate(filter, updateFields, options);
     } catch (error) {
         console.log(error);
         throw new Error('Failed to update the user info!');
     }
     revalidatePath('/dashboard/users');
-    redirect('/dashboard/users');
+};
+
+
+export const updateProduct = async (formData: any) => {
+    const { id, title, description, price, stock, color, size, category } = Object.fromEntries(formData);
+
+    try {
+        connectToDB();
+        const updateFields: any = {
+            title, description, price, stock, color, size, category,
+        };
+        Object.keys(updateFields).forEach((key) =>
+            (updateFields[key] == "" || undefined) && delete updateFields[key]);
+        const filter = { _id: new ObjectId(id) };
+        const options = { upsert: true };
+        console.log(title, description, price, stock, color, size, category);
+        await Product.findOneAndUpdate(filter, updateFields, options);
+    } catch (error) {
+        console.log(error);
+        throw new Error('Failed to update the product info!');
+    }
+    revalidatePath('/dashboard/products');
 };

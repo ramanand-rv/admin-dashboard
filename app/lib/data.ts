@@ -1,4 +1,5 @@
 "use server"
+import { ObjectId } from "mongodb";
 import { User, Product } from "./models";
 import { connectToDB } from "./utils";
 
@@ -43,12 +44,12 @@ export const fetchUser = async (id:any) => {
     }
 };
 
-export const fetchProduct = async (id: any) => {
+export const fetchProduct = async (id:any) => {
     try {
         connectToDB();
         const product = await Product.findById(id);
-        return { product };
-    } catch (error) {
+        return product;
+    } catch (error) { 
         console.log(error);
         throw new Error('Failed to fetch the product');
     }

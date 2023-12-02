@@ -1,12 +1,17 @@
+import { updateProduct } from '@/app/lib/actions';
+import { fetchProduct } from '@/app/lib/data';
 import styles from '@/app/ui/dashboard/products/productDescriptionPage/productDescriptionPage.module.css';
 import Image from 'next/image';
 
-const productDescriptionPage = () => {
+const productDescriptionPage = async ({ params }: any) => {
+    const { id } = params;
+    const product: any = await fetchProduct(id);
+    console.log(product);
     return (
         <div className={styles.container}>
             <div className={styles.infoContainer}>
                 <div className={styles.imageContainer}>
-                    <Image alt='user image' src='/user.png'
+                    <Image src={product.img || '/user.png'} alt='product image'
                         fill
                     />
                 </div>
@@ -14,18 +19,18 @@ const productDescriptionPage = () => {
             </div>
 
             <div className={styles.formContainer}>
-                <form action="" className={styles.form}>
+                <form action={updateProduct} className={styles.form}>
 
                     <label>Title</label>
-                    <input type="text" name="title" placeholder='Pixel' />
+                    <input type="text" name="title" placeholder={product.title} />
                     <label>Price</label>
-                    <input type="text" name="price" placeholder='65000' />
+                    <input type="text" name="price" placeholder={product.price} />
                     <label>Stock</label>
-                    <input type="number" name="stock" />
+                    <input type="number" name="stock" placeholder={product.stock} />
                     <label>Color</label>
-                    <input type="text" name="color" placeholder='Red' />
+                    <input type="text" name="color" placeholder={product.color} />
                     <label>Size</label>
-                    <input type="text" name="size" placeholder='Large' />
+                    <input type="text" name="size" placeholder={product.size} />
 
                     <select name="category" id="category" >
                         <option disabled selected hidden value="general" >Choose a Category</option>
@@ -37,7 +42,7 @@ const productDescriptionPage = () => {
                     </select>
 
                     <label>Description</label>
-                    <textarea name="desciption" placeholder='Pixel Description' />
+                    <textarea name="desciption" placeholder={product.description} />
                     <button type='submit'>Submit</button>
                 </form>
 

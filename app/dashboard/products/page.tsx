@@ -1,5 +1,5 @@
 import { deleteProduct } from '@/app/lib/actions';
-import { fetchProducts } from '@/app/lib/data';
+import { fetchProduct, fetchProducts } from '@/app/lib/data';
 import Pagination from '@/app/ui/dashboard/pagination/pagination';
 import styles from '@/app/ui/dashboard/products/products.module.css';
 import Search from '@/app/ui/dashboard/search/search';
@@ -37,17 +37,20 @@ const ProductsPage = async ({ searchParams }: any) => {
                 <Image src={product.img || '/noproduct.png'} className={styles.productImage} alt='product image' width={40} height={40} />
                 {product.title}
               </td>
-              <td>{product.description.toString().slice(0, 20)}</td>
+              <td>{product.description?.toString().slice(0, 20)}</td>
               <td>INR {product.price}</td>
               <td>{product.createdAt?.toString().slice(4, 16)}</td>
               <td>{product.stock}</td>
               <td>
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/products/${product.id}`}>
-                    <button className={`${styles.button} ${styles.view}`}>View</button>
+                    <form action={fetchProduct}>
+                      <input type="hidden" name="id" value={product.id} />
+                      <button className={`${styles.button} ${styles.view}`}>View</button>
+                    </form>
                   </Link>
-                <form action={deleteProduct}>
-                  <input type="hidden" name='id' value={product.id} />
+                  <form action={deleteProduct}>
+                    <input type="hidden" name='id' value={product.id} />
                     <button className={`${styles.button} ${styles.delete}`}>Delete</button>
                   </form>
                 </div>
