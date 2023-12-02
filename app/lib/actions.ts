@@ -1,5 +1,6 @@
 'use server'
 import bcrypt from 'bcrypt';
+import { ObjectId } from 'mongodb';
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Product, User } from "./models";
@@ -85,24 +86,21 @@ export const updateUser = async (formData: any) => {
 
     try {
         connectToDB();
-        const updateFields: any = { username, email, password, phone, address, isAdmin, isActive }
-        Object.keys(updateFields).forEach((key) => 
-            updateFields[key] == "" || undefined && delete updateFields[key]);
-
-
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-        const newUser = new User({
-            id,
+        const updateFields:any = {
             username,
             email,
-            password: hashedPassword,
             phone,
+            password,
             address,
             isAdmin,
             isActive,
-        });
-        await User.findByIdAndUpdate(id, updateFields);
+        }; 
+        Object.keys(updateFields).forEach((key) =>
+            updateFields[key] == "" || undefined && delete updateFields[key]);
+        console.log('id:->', id);
+        const filter = {_id: new ObjectId(id)};
+        const options = {upsert: true};
+        await User.findOneAndUpdate(filter, updateFields, options);
     } catch (error) {
         console.log(error);
         throw new Error('Failed to update the user info!');
