@@ -85,19 +85,20 @@ export const updateUser = async (formData: any) => {
     const { id, username, email, password, phone, address, isAdmin, isActive } = Object.fromEntries(formData);
 
     try {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
         connectToDB();
         const updateFields:any = {
             username,
             email,
             phone,
-            password,
+            password: hashedPassword,
             address,
             isAdmin,
             isActive,
         }; 
         Object.keys(updateFields).forEach((key) =>
-            updateFields[key] == "" || undefined && delete updateFields[key]);
-        console.log('id:->', id);
+            (updateFields[key] == "" || undefined ) && delete updateFields[key]);
         const filter = {_id: new ObjectId(id)};
         const options = {upsert: true};
         await User.findOneAndUpdate(filter, updateFields, options);
