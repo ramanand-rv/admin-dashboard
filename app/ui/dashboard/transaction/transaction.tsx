@@ -13,7 +13,6 @@ import { fetchUsers } from '@/app/lib/data';
 const Transaction = async () => {
   const { count, users } = await fetchUsers("", 1);
   const transUsers = users.slice(0, 4);
-  console.log(transUsers);
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Latest Transactions</h2>
