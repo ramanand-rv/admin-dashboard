@@ -1,7 +1,19 @@
 import Image from 'next/image';
 import styles from './transaction.module.css';
+import { fetchUsers } from '@/app/lib/data';
 
-const Transaction = () => {
+// const status ={
+//   [
+//     ,
+//     
+//   ],
+              
+// }
+
+const Transaction = async () => {
+  const { count, users } = await fetchUsers("", 1);
+  const transUsers = users.slice(0, 4);
+  console.log(transUsers);
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Latest Transactions</h2>
@@ -15,55 +27,34 @@ const Transaction = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image alt='' src='/user.png' width={40} height={40} className={styles.userImage} />
-                Tony Stark
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.pending}`}>Pending</span>
-            </td>
-            <td>11/11/1999</td>
-            <td>INR. 10000</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image alt='' src='/user.png' width={40} height={40} className={styles.userImage} />
-                Tony Stark
-              </div>            </td>
-            <td>
-              <span className={`${styles.status} ${styles.done}`}>Done</span>
-            </td>
-            <td>11/11/1999</td>
-            <td>INR. 10000</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image alt='' src='/user.png' width={40} height={40} className={styles.userImage} />
-                Tony Stark
-              </div>            </td>
-            <td>
-              <span className={`${styles.status} ${styles.cancelled}`}>Cancelled</span>
-            </td>
-            <td>11/11/1999</td>
-            <td>INR. 10000</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image alt='' src='/user.png' width={40} height={40} className={styles.userImage} />
-                Tony Stark
-              </div>            </td>
-            <td>
-              <span className={`${styles.status} ${styles.cancelled}`}>Cancelled</span>
-            </td>
-            <td>11/11/1999</td>
-            <td>INR. 10000</td>
-          </tr>
+          {transUsers.map(user => (
+            <>
+              <tr key={user.id}>
+                <td>
+                  <div className={styles.user}>
+                    <Image alt='' src={user.img || '/user.png'} width={40} height={40} className={styles.userImage} />
+                    {user.username}
+                  </div>
+                </td>
+                <td>
+                  {
+                    user.img ?
+                      user.isAdmin ? 
+                        <span className={`${styles.status} ${styles.done}`}> Done</span>
+                      :
+                        <span className={`${styles.status} ${styles.pending}`}>Pending</span>
+                    :
+                      <span className={`${styles.status} ${styles.cancelled}`}>Cancelled</span>
+                  }
+                  
+                </td>
+                <td>{user.createdAt?.toString().slice(4, 16)}</td>
+                <td>INR. {parseFloat((Math.random()).toFixed(4)) * 100000}</td>
+              </tr>
+
+
+            </>
+          ))}
         </tbody>
       </table>
     </div>
