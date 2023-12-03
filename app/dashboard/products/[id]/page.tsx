@@ -14,7 +14,9 @@ const productDescriptionPage = async ({ params }: any) => {
                         fill
                     />
                 </div>
-                Tony Stark
+                <div className={styles.titleContainer}>
+                    {product.title}
+                </div>
             </div>
 
             <div className={styles.formContainer}>
