@@ -134,12 +134,13 @@ export const updateProduct = async (formData: any) => {
 
 };
 
-export const authenticate = async (FormData:any) =>{
+export const authenticate = async (previousSate:any, FormData:any) =>{
     const {username, password} = Object.fromEntries(FormData);
     try {
         await signIn('credentials', {username, password})
     } catch (error) {
         console.log(error);
-        throw new Error("Failed to authenticate");
+        // throw new Error("Failed to authenticate");
+        return "Incorrect Credentials";
     }
 }
