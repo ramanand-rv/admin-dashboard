@@ -1,6 +1,6 @@
 .container {
     position: sticky;
-    top: 40px;   
+    top: 40px;
 }
 
 .user {
@@ -10,15 +10,17 @@
     margin: 20px;
 }
 
-.userImage{
+.userImage {
     border-radius: 50%;
     object-fit: cover;
 }
+
 .userDetails {
     display: flex;
     flex-direction: column;
 }
-.username{
+
+.username {
     font-weight: 500;
 }
 
@@ -26,17 +28,19 @@
     font-size: 12px;
     color: var(--textSoft);
 }
-.list{
+
+.list {
     list-style: none;
 }
-.category{
+
+.category {
     color: var(--textSoft);
     font-weight: bold;
     font-size: 13px;
     margin: 10px 0px;
 }
 
-.logoutbtn{
+.logoutbtn {
     padding: 20px;
     margin: 5px 0px;
     display: flex;

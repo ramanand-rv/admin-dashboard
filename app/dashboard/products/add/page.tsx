@@ -5,8 +5,8 @@ const AddProductsPage = () => {
   return (
     <div className={styles.container}>
       <form action={addProduct} className={styles.form}>
-        <input type="text" name="title" placeholder="Title" required/>
-        
+        <input type="text" name="title" placeholder="Title" required />
+
         <select name="category" id="category" >
           <option disabled selected hidden value="general" >Choose a Category</option>
           <option value="electronics">Electronics</option>

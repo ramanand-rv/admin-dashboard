@@ -1,19 +1,19 @@
+import { auth, signOut } from '@/app/auth';
 import Image from 'next/image';
-import MenuLink from './menuLink/menuLink';
-import styles from './sidebar.module.css';
 import {
-  MdDashboard,
-  MdSupervisedUserCircle,
-  MdShoppingBag,
-  MdAttachMoney,
-  MdWork,
   MdAnalytics,
-  MdPeople,
-  MdOutlineSettings,
+  MdAttachMoney,
+  MdDashboard,
   MdHelpCenter,
   MdLogout,
-} from 'react-icons/md'
-import { auth, signOut } from '@/app/auth';
+  MdOutlineSettings,
+  MdPeople,
+  MdShoppingBag,
+  MdSupervisedUserCircle,
+  MdWork,
+} from 'react-icons/md';
+import MenuLink from './menuLink/menuLink';
+import styles from './sidebar.module.css';
 const menuItems = [
   {
     title: 'Pages',
@@ -45,17 +45,17 @@ const menuItems = [
     list: [
       {
         title: 'Revenue',
-        path: '/dashboard/revenue',
+        path: '',
         icon: <MdWork />
       },
       {
         title: 'Reports',
-        path: '/dashboard/reports',
+        path: '',
         icon: <MdAnalytics />
       },
       {
         title: 'Teams',
-        path: '/dashboard/teams',
+        path: 'https://www.instagram.com/ramanand_rv/',
         icon: <MdPeople />
       },
     ],
@@ -65,12 +65,12 @@ const menuItems = [
     list: [
       {
         title: 'Settings',
-        path: '/dashboard/settings',
+        path: '',
         icon: <MdOutlineSettings />,
       },
       {
         title: 'Help',
-        path: '/dashboard/help',
+        path: '/gxgxg',
         icon: <MdHelpCenter />,
       },
     ],
@@ -78,7 +78,7 @@ const menuItems = [
 ];
 
 const Sidebar = async () => {
-  const {user}:any = await auth();
+  const { user }: any = await auth();
   return (
     <div className={styles.container}>
       <div className={styles.user}>

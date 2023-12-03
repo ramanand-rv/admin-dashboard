@@ -10,7 +10,7 @@ const UsersPage = async ({ searchParams }: any) => {
   const q = searchParams?.q || "";
 
   const page = searchParams?.page || 1;
-  const {count, users} = await fetchUsers(q, page)
+  const { count, users } = await fetchUsers(q, page)
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -47,7 +47,7 @@ const UsersPage = async ({ searchParams }: any) => {
                   <Link href={`/dashboard/users/${user.id}`}>
                     <form action={fetchUser}>
                       <input type="hidden" name="id" value={user.id} />
-                      <button className={`${styles.button} ${styles.view}`}>View</button> 
+                      <button className={`${styles.button} ${styles.view}`}>View</button>
                     </form>
                   </Link>
                   <form action={deleteUser}>
@@ -60,7 +60,7 @@ const UsersPage = async ({ searchParams }: any) => {
           ))}
         </tbody>
       </table>
-      <Pagination count = {count} />
+      <Pagination count={count} />
     </div>
   )
 }

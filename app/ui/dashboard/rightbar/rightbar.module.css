@@ -61,7 +61,7 @@
     color: var(--textSoft);
 }
 
-.button:hover{
+.button:hover {
     transition: ease-in 120ms;
     transform: scale(1.15);
     color: chartreuse;

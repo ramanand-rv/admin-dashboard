@@ -1,7 +1,8 @@
 'use client'
 import { usePathname } from 'next/navigation';
+import { MdNotifications, MdOutlineChat, MdPublic, MdSearch } from 'react-icons/md';
 import styles from './navbar.module.css';
-import { MdNotifications, MdOutlineChat, MdPublic, MdSearch } from 'react-icons/md'
+import Link from 'next/link';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -15,13 +16,19 @@ const Navbar = () => {
         </div>
         <div className={styles.icons}>
           <div className={styles.chatIcon}>
-            <MdOutlineChat size={20} />
+            <Link href={'https://twitter.com/pyaracetamol0mg'}>
+              <MdOutlineChat size={20} />
+            </Link>
           </div>
           <div className={styles.notificationIcon}>
-            <MdNotifications size={20} />
+            <Link href={'https://www.linkedin.com/in/ramanand-rv/'}>
+              <MdNotifications size={20} />
+            </Link>
           </div>
           <div className={styles.publicIcon}>
-            <MdPublic size={20} />
+            <Link href={'https://www.github.com/ramanand-rv'}>
+              <MdPublic size={20} />
+            </Link>
           </div>
         </div>
       </div>

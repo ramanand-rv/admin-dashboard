@@ -14,7 +14,8 @@
     height: max-content;
 
 }
-.titleContainer{
+
+.titleContainer {
     display: flex;
     justify-content: center;
     margin-top: 10px;

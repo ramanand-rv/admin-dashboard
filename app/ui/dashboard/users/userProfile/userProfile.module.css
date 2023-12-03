@@ -14,7 +14,8 @@
     height: max-content;
 
 }
-.usertitle{
+
+.usertitle {
     display: flex;
     justify-content: center;
     margin-top: 10px;

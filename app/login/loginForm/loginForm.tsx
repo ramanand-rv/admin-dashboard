@@ -18,8 +18,8 @@ const LoginForm = () => {
             <button type="submit">Login</button>
             {state && state}
         </form>
-        
-        )
+
+    )
 }
 
 export default LoginForm

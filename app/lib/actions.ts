@@ -3,9 +3,9 @@ import bcrypt from 'bcrypt';
 import { ObjectId } from 'mongodb';
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { signIn } from '../auth';
 import { Product, User } from "./models";
 import { connectToDB } from "./utils";
-import { signIn } from '../auth';
 
 export const addUser = async (formData: any) => {
     const { username, email, password, phone, address, isAdmin, isActive } = Object.fromEntries(formData);
@@ -134,10 +134,10 @@ export const updateProduct = async (formData: any) => {
 
 };
 
-export const authenticate = async (previousSate:any, FormData:any) =>{
-    const {username, password} = Object.fromEntries(FormData);
+export const authenticate = async (previousSate: any, FormData: any) => {
+    const { username, password } = Object.fromEntries(FormData);
     try {
-        await signIn('credentials', {username, password})
+        await signIn('credentials', { username, password })
     } catch (error) {
         console.log(error);
         // throw new Error("Failed to authenticate");

@@ -1,14 +1,6 @@
+import { fetchUsers } from '@/app/lib/data';
 import Image from 'next/image';
 import styles from './transaction.module.css';
-import { fetchUsers } from '@/app/lib/data';
-
-// const status ={
-//   [
-//     ,
-//     
-//   ],
-              
-// }
 
 const Transaction = async () => {
   const { count, users } = await fetchUsers("", 1);
@@ -38,14 +30,14 @@ const Transaction = async () => {
                 <td>
                   {
                     user.img ?
-                      user.isAdmin ? 
+                      user.isAdmin ?
                         <span className={`${styles.status} ${styles.done}`}> Done</span>
-                      :
+                        :
                         <span className={`${styles.status} ${styles.pending}`}>Pending</span>
-                    :
+                      :
                       <span className={`${styles.status} ${styles.cancelled}`}>Cancelled</span>
                   }
-                  
+
                 </td>
                 <td>{user.createdAt?.toString().slice(4, 16)}</td>
                 <td>INR. {parseFloat((Math.random()).toFixed(4)) * 100000}</td>

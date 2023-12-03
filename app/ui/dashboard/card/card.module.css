@@ -18,20 +18,20 @@
     gap: 20px;
 }
 
-.number{
+.number {
     font-size: 24px;
     font-weight: 500;
 }
 
-.detail{
+.detail {
     font-size: 14px;
     font-weight: 300;
 }
 
-.positive{
+.positive {
     color: lime;
 }
 
-.negative{
+.negative {
     color: red;
 }

@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const UserProfilePage = async ({ params }: any) => {
     const { id } = params;
-    const user:any = await fetchUser(id);
+    const user: any = await fetchUser(id);
     return (
         <div className={styles.container}>
             <div className={styles.infoContainer}>
@@ -41,7 +41,7 @@ const UserProfilePage = async ({ params }: any) => {
                     </select>
                     <label >Is Active ?</label>
                     <select name="isActive">
-                        <option value="true" selected={user.isActive===true}>Yes</option>
+                        <option value="true" selected={user.isActive === true}>Yes</option>
                         <option value="false" selected={user.isActive === false}>No</option>
                     </select>
                     <button type='submit'>Update</button>

@@ -36,7 +36,7 @@ const productDescriptionPage = async ({ params }: any) => {
 
                     <select name="category" id="category" >
                         <option disabled selected hidden value="general" >Choose a Category</option>
-                        <option value="electronics" selected={product.category==='electronics'}>Electronics</option>
+                        <option value="electronics" selected={product.category === 'electronics'}>Electronics</option>
                         <option value="fashion" selected={product.category === 'fashion'}>Fashion</option>
                         <option value="books" selected={product.category === 'books'}>Books</option>
                         <option value="accessories" selected={product.category === 'accessories'}>Accessories</option>
