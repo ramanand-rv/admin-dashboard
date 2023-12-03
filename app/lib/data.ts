@@ -2,9 +2,9 @@
 import { Product, User } from "./models";
 import { connectToDB } from "./utils";
 
-export const fetchUsers = async (q: any, page: any) => {
+export const fetchUsers = async (q: any, page: any, count: any) => {
     const regex = new RegExp(q, 'i');
-    const UsersPerPage = 5;
+    const UsersPerPage = count ? count : 5;
     try {
         connectToDB();
         const count = (await User.find({ username: { $regex: regex } })).length;
