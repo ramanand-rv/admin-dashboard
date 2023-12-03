@@ -140,6 +140,6 @@ export const authenticate = async (FormData:any) =>{
         await signIn('credentials', {username, password})
     } catch (error) {
         console.log(error);
-        throw error;
+        throw new Error("Failed to authenticate");
     }
 }

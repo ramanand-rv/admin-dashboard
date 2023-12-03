@@ -9,6 +9,7 @@ export const connectToDB = async () => {
         const db = await mongoose.connect(DB_LINK);
         connection.isConnected = db.connections[0].readyState
     } catch (error) {
-        throw (error);
+        console.log(error);
+        throw new Error("Couldn't connect to DB")
     }
 }
