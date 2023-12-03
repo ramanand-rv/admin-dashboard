@@ -13,6 +13,7 @@ import {
   MdHelpCenter,
   MdLogout,
 } from 'react-icons/md'
+import { auth, signOut } from '@/app/auth';
 const menuItems = [
   {
     title: 'Pages',
@@ -76,7 +77,9 @@ const menuItems = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = async () => {
+  const session = await auth();
+  console.log(session);
   return (
     <div className={styles.container}>
       <div className={styles.user}>
@@ -101,10 +104,15 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <button className={styles.logoutbtn}>
-        <MdLogout />
-        Logout
-      </button>
+      <form action={async () => {
+        'use server'
+        await signOut();
+      }}>
+        <button className={styles.logoutbtn}>
+          <MdLogout />
+          Logout
+        </button>
+      </form>
     </div>
   );
 };
