@@ -6,7 +6,7 @@ import { useFormState } from 'react-dom';
 const LoginForm = () => {
     const [state, formAction] = useFormState(authenticate, undefined)
     const handleLogin = async (formData: any) => {
-        const data: any = await authenticate(formData);
+        const data: any = await authenticate("", formData);
     }
     return (
         <form action={formAction} className={styles.form}>
