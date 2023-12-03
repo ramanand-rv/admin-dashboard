@@ -2,7 +2,7 @@
 import { Product, User } from "./models";
 import { connectToDB } from "./utils";
 
-export const fetchUsers = async (q: any, page: any, count: any) => {
+export const fetchUsers = async (q: any, page: any, count?: any) => {
     const regex = new RegExp(q, 'i');
     const UsersPerPage = count ? count : 5;
     try {

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link"
-import { Md10K, MdCall, MdCallMade, MdChat, MdChatBubble, MdCode, MdFacebook, MdPermPhoneMsg } from "react-icons/md"
+import { MdChat, MdCode, MdPermPhoneMsg } from "react-icons/md"
 
 const Error = () => {
   return (

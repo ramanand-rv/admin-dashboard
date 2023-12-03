@@ -1,6 +1,6 @@
 import { fetchUsers } from '@/app/lib/data';
-import Image from 'next/image';
 import styles from '@/app/ui/dashboard/transaction/transactionPage/transactionPage.module.css';
+import Image from 'next/image';
 
 const Transaction = async () => {
   const { count, users } = await fetchUsers("", 1, 30);
@@ -40,7 +40,7 @@ const Transaction = async () => {
 
                 </td>
                 <td>{user.createdAt?.toString().slice(4, 16)}</td>
-                <td>INR. {parseIt((Math.random()).toFixed(4)) * 10000}</td>
+                <td>INR. {parseFloat((Math.random()).toFixed(4)) * 10000}</td>
               </tr>
 
 
