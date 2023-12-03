@@ -70,7 +70,7 @@ const menuItems = [
       },
       {
         title: 'Help',
-        path: '/gxgxg',
+        path: 'https://www.linkedin.com/in/ramanand-rv/',
         icon: <MdHelpCenter />,
       },
     ],
