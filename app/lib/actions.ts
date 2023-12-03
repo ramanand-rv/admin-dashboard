@@ -107,12 +107,13 @@ export const updateUser = async (formData: any) => {
         throw new Error('Failed to update the user info!');
     }
     revalidatePath('/dashboard/users');
+    redirect('/dashboard/users');
+
 };
 
 
 export const updateProduct = async (formData: any) => {
     const { id, title, description, price, stock, color, size, category } = Object.fromEntries(formData);
-
     try {
         connectToDB();
         const updateFields: any = {
@@ -121,12 +122,13 @@ export const updateProduct = async (formData: any) => {
         Object.keys(updateFields).forEach((key) =>
             (updateFields[key] == "" || undefined) && delete updateFields[key]);
         const filter = { _id: new ObjectId(id) };
-        const options = { upsert: true };
-        console.log(title, description, price, stock, color, size, category);
-        await Product.findOneAndUpdate(filter, updateFields, options);
+        const options = { upsert: false };
+        await Product.findByIdAndUpdate(filter, updateFields, options);
     } catch (error) {
         console.log(error);
         throw new Error('Failed to update the product info!');
     }
     revalidatePath('/dashboard/products');
+    redirect('/dashboard/products');
+
 };

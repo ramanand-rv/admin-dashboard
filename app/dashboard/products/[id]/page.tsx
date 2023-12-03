@@ -6,7 +6,6 @@ import Image from 'next/image';
 const productDescriptionPage = async ({ params }: any) => {
     const { id } = params;
     const product: any = await fetchProduct(id);
-    console.log(product);
     return (
         <div className={styles.container}>
             <div className={styles.infoContainer}>
@@ -20,6 +19,7 @@ const productDescriptionPage = async ({ params }: any) => {
 
             <div className={styles.formContainer}>
                 <form action={updateProduct} className={styles.form}>
+                    <input type="hidden" name="id" value={product.id} />
 
                     <label>Title</label>
                     <input type="text" name="title" placeholder={product.title} />
@@ -34,11 +34,11 @@ const productDescriptionPage = async ({ params }: any) => {
 
                     <select name="category" id="category" >
                         <option disabled selected hidden value="general" >Choose a Category</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="fashion">Fashion</option>
-                        <option value="books">Books</option>
-                        <option value="accessories">Accessories</option>
-                        <option value="homeapp">Home Appliances</option>
+                        <option value="electronics" selected={product.category==='electronics'}>Electronics</option>
+                        <option value="fashion" selected={product.category === 'fashion'}>Fashion</option>
+                        <option value="books" selected={product.category === 'books'}>Books</option>
+                        <option value="accessories" selected={product.category === 'accessories'}>Accessories</option>
+                        <option value="homeapp" selected={product.category === 'homeapp'}>Home Appliances</option>
                     </select>
 
                     <label>Description</label>
