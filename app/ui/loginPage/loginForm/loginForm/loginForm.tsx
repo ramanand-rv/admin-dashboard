@@ -5,9 +5,6 @@ import { useFormState } from 'react-dom';
 
 const LoginForm = () => {
     const [state, formAction] = useFormState(authenticate, undefined)
-    const handleLogin = async (formData: any) => {
-        const data: any = await authenticate("", formData);
-    }
     return (
         <form action={formAction} className={styles.form}>
             <h1>Login</h1>
@@ -15,7 +12,7 @@ const LoginForm = () => {
             />
             <input type="password" name="password" placeholder='Password' autoComplete="current-password"
             />
-            <button type="submit">Login</button>
+            <button>Login</button>
             {state && state}
         </form>
 
